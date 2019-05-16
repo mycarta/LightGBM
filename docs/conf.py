@@ -262,7 +262,7 @@ def setup(app):
         open(os.path.join(CURR_PATH, '_FIRST_RUN.flag'), 'w').close()
     if C_API and (not RTD or first_run):
         app.connect("builder-inited", generate_doxygen_xml)
-    else:
+    elif not C_API:
         app.add_directive('doxygenfile', IgnoredDirective)
     if R_API:
         if not RTD or first_run:
